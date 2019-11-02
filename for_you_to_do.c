@@ -144,48 +144,47 @@ void mydgemm(const double *A, const double *B, double *C, int n, int i, int j, i
 {
 	/* add your code here */
 	/* please just copy from your lab1 function optimal( ... ) */
-	int i1, j1, k1;
-	register double c00, c01, c02, c03, c10, c11, c12, c13, c20, c21, c22, c23, c30, c31, c32, c33;
+	register int i1, j1, k1;
 		/* B x B mini matrix multiplications */
 		for (i1 = i; (i1 < i + b) && (i1 < n); i1 += 4)
 			for (j1 = j; (j1 < j + b) && (j1 < n); j1 += 4)
 			{
-				int c0 = i1 * n + j1;
-				int c1 = c0 + n;
-				int c2 = c1 + n;
-				int c3 = c2 + n;
-				c00 = C[c0];
-				c01 = C[c0 + 1];
-				 c02 = C[c0 + 2];
-				 c03 = C[c0 + 3];
-				 c10 = C[c1];
-				 c11 = C[c1 + 1];
-				  c12 = C[c1 + 2];
-				  c13 = C[c1 + 3];
-				  c20 = C[c2];
-				  c21 = C[c2 + 1];
-				  c22 = C[c2 + 2];
-				  c23 = C[c2 + 3];
-				  c30 = C[c3];
-				  c31 = C[c3 + 1];
-				  c32 = C[c3 + 2];
-				  c33 = C[c3 + 3];
+				register int c0 = i1 * n + j1;
+				register int c1 = c0 + n;
+				register int c2 = c1 + n;
+				register int c3 = c2 + n;
+				register double c00 = C[c0];
+				register double c01 = C[c0 + 1];
+				register double c02 = C[c0 + 2];
+				register double c03 = C[c0 + 3];
+				register double c10 = C[c1];
+				register double c11 = C[c1 + 1];
+				register double c12 = C[c1 + 2];
+				register double c13 = C[c1 + 3];
+				register double c20 = C[c2];
+				register double c21 = C[c2 + 1];
+				register double c22 = C[c2 + 2];
+				register double c23 = C[c2 + 3];
+				register double c30 = C[c3];
+				register double c31 = C[c3 + 1];
+				register double c32 = C[c3 + 2];
+				register double c33 = C[c3 + 3];
 
 				for (k1 = k; (k1 < k + b) && (k1 < n); k1 += 4)
 				{
-					int a0 = i1 * n + k1;
-					int a1 = a0 + n;
-					int a2 = a1 + n;
-					int a3 = a2 + n;
-					int b0 = k1 * n + j1;
-					int b1 = b0 + n;
-					int b2 = b1 + n;
-					int b3 = b2 + n;
-					double a00 = A[a0];
-					double a10 = A[a1];
-					double a20 = A[a2];
-					double a30 = A[a3];
-					double b00 = B[b0]; double b01 = B[b0 + 1]; double b02 = B[b0 + 2]; double b03 = B[b0 + 3];
+					register int a0 = i1 * n + k1;
+					register int a1 = a0 + n;
+					register int a2 = a1 + n;
+					register int a3 = a2 + n;
+					register int b0 = k1 * n + j1;
+					register int b1 = b0 + n;
+					register int b2 = b1 + n;
+					register int b3 = b2 + n;
+					register double a00 = A[a0];
+					register double a10 = A[a1];
+					register double a20 = A[a2];
+					register double a30 = A[a3];
+					register double b00 = B[b0]; register double b01 = B[b0 + 1]; register double b02 = B[b0 + 2]; register double b03 = B[b0 + 3];
 
 					c00 -= a00 * b00; c01 -= a00 * b01; c02 -= a00 * b02; c03 -= a00 * b03;
 					c10 -= a10 * b00; c11 -= a10 * b01; c12 -= a10 * b02; c13 -= a10 * b03;
