@@ -144,12 +144,12 @@ void mydgemm(const double *A, const double *B, double *C, int n, int i, int j, i
 {
 	/* add your code here */
 	/* please just copy from your lab1 function optimal( ... ) */
-	register int i1, j1, k1;
+	int i1, j1, k1;
 		/* B x B mini matrix multiplications */
 		for (i1 = i; (i1 < i + b) && (i1 < n); i1 += 3)
 			for (j1 = j; (j1 < j + b) && (j1 < n); j1 += 3)
 			{
-				int c0 = i * n + j;
+				int c0 = i1 * n + j1;
 				int c1 = c0 + n;
 				int c2 = c1 + n;
 				register double c00 = C[c0];
@@ -164,10 +164,10 @@ void mydgemm(const double *A, const double *B, double *C, int n, int i, int j, i
 
 				for (k1 = k; (k1 < k + b) && (k1 < n); k1 += 3)
 				{
-					int a0 = i * n + k;
+					int a0 = i1 * n + k1;
 					int a1 = a0 + n;
 					int a2 = a1 + n;
-					int b0 = k * n + j;
+					int b0 = k1 * n + j1;
 					int b1 = b0 + n;
 					int b2 = b1 + n;
 					register double a00 = A[a0];
