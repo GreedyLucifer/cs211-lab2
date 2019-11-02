@@ -160,7 +160,7 @@ void mydgemm(const double *A, const double *B, double *C, int n, int i, int j, i
 				register double c10 = C[c1];
 				register double c11 = C[c1 + 1];
 				register double c12 = C[c1 + 2];
-				register double c02 = C[c1 + 3];
+				register double c13 = C[c1 + 3];
 				register double c20 = C[c2];
 				register double c21 = C[c2 + 1];
 				register double c22 = C[c2 + 2];
