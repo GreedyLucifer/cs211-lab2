@@ -145,6 +145,7 @@ void mydgemm(const double *A, const double *B, double *C, int n, int i, int j, i
 	/* add your code here */
 	/* please just copy from your lab1 function optimal( ... ) */
 	int i1, j1, k1;
+	register double c00, c01, c02, c03, c10, c11, c12, c13, c20, c21, c22, c23, c30, c31, c32, c33;
 		/* B x B mini matrix multiplications */
 		for (i1 = i; (i1 < i + b) && (i1 < n); i1 += 4)
 			for (j1 = j; (j1 < j + b) && (j1 < n); j1 += 4)
@@ -153,22 +154,22 @@ void mydgemm(const double *A, const double *B, double *C, int n, int i, int j, i
 				int c1 = c0 + n;
 				int c2 = c1 + n;
 				int c3 = c2 + n;
-				register double c00 = C[c0];
-				register double c01 = C[c0 + 1];
-				register double c02 = C[c0 + 2];
-				register double c03 = C[c0 + 3];
-				register double c10 = C[c1];
-				register double c11 = C[c1 + 1];
-				register double c12 = C[c1 + 2];
-				register double c13 = C[c1 + 3];
-				register double c20 = C[c2];
-				register double c21 = C[c2 + 1];
-				register double c22 = C[c2 + 2];
-				register double c23 = C[c2 + 3];
-				register double c30 = C[c3];
-				register double c31 = C[c3 + 1];
-				register double c32 = C[c3 + 2];
-				register double c33 = C[c3 + 3];
+				c00 = C[c0];
+				c01 = C[c0 + 1];
+				 c02 = C[c0 + 2];
+				 c03 = C[c0 + 3];
+				 c10 = C[c1];
+				 c11 = C[c1 + 1];
+				  c12 = C[c1 + 2];
+				  c13 = C[c1 + 3];
+				  c20 = C[c2];
+				  c21 = C[c2 + 1];
+				  c22 = C[c2 + 2];
+				  c23 = C[c2 + 3];
+				  c30 = C[c3];
+				  c31 = C[c3 + 1];
+				  c32 = C[c3 + 2];
+				  c33 = C[c3 + 3];
 
 				for (k1 = k; (k1 < k + b) && (k1 < n); k1 += 4)
 				{
