@@ -186,10 +186,10 @@ void mydgemm(const double *A, const double *B, double *C, int n, int i, int j, i
 					double a30 = A[a3];
 					double b00 = B[b0]; double b01 = B[b0 + 1]; double b02 = B[b0 + 2]; double b03 = B[b0 + 3];
 
-					c00 += a00 * b00; c01 += a00 * b01; c02 += a00 * b02; c03 += a00 * b03;
-					c10 += a10 * b00; c11 += a10 * b01; c12 += a10 * b02; c13 += a10 * b03;
-					c20 += a20 * b00; c21 += a20 * b01; c22 += a20 * b02; c23 += a20 * b03;
-					c30 += a30 * b00; c31 += a30 * b01; c32 += a30 * b02; c33 += a30 * b03;
+					c00 -= a00 * b00; c01 -= a00 * b01; c02 -= a00 * b02; c03 -= a00 * b03;
+					c10 -= a10 * b00; c11 -= a10 * b01; c12 -= a10 * b02; c13 -= a10 * b03;
+					c20 -= a20 * b00; c21 -= a20 * b01; c22 -= a20 * b02; c23 -= a20 * b03;
+					c30 -= a30 * b00; c31 -= a30 * b01; c32 -= a30 * b02; c33 -= a30 * b03;
 
 					a00 = A[a0 + 1];
 					a10 = A[a1 + 1];
@@ -197,10 +197,10 @@ void mydgemm(const double *A, const double *B, double *C, int n, int i, int j, i
 					a30 = A[a3 + 1];
 					b00 = B[b1]; b01 = B[b1 + 1]; b02 = B[b1 + 2]; b03 = B[b1 + 3];
 
-					c00 += a00 * b00; c01 += a00 * b01; c02 += a00 * b02; c03 += a00 * b03;
-					c10 += a10 * b00; c11 += a10 * b01; c12 += a10 * b02; c13 += a10 * b03;
-					c20 += a20 * b00; c21 += a20 * b01; c22 += a20 * b02; c23 += a20 * b03;
-					c30 += a30 * b00; c31 += a30 * b01; c32 += a30 * b02; c33 += a30 * b03;
+					c00 -= a00 * b00; c01 -= a00 * b01; c02 -= a00 * b02; c03 -= a00 * b03;
+					c10 -= a10 * b00; c11 -= a10 * b01; c12 -= a10 * b02; c13 -= a10 * b03;
+					c20 -= a20 * b00; c21 -= a20 * b01; c22 -= a20 * b02; c23 -= a20 * b03;
+					c30 -= a30 * b00; c31 -= a30 * b01; c32 -= a30 * b02; c33 -= a30 * b03;
 
 					a00 = A[a0 + 2];
 					a10 = A[a1 + 2];
@@ -208,10 +208,10 @@ void mydgemm(const double *A, const double *B, double *C, int n, int i, int j, i
 					a30 = A[a3 + 2];
 					b00 = B[b2]; b01 = B[b2 + 1]; b02 = B[b2 + 2]; b03 = B[b2 + 3];
 
-					c00 += a00 * b00; c01 += a00 * b01; c02 += a00 * b02; c03 += a00 * b03;
-					c10 += a10 * b00; c11 += a10 * b01; c12 += a10 * b02; c13 += a10 * b03;
-					c20 += a20 * b00; c21 += a20 * b01; c22 += a20 * b02; c23 += a20 * b03;
-					c30 += a30 * b00; c31 += a30 * b01; c32 += a30 * b02; c33 += a30 * b03;
+					c00 -= a00 * b00; c01 -= a00 * b01; c02 -= a00 * b02; c03 -= a00 * b03;
+					c10 -= a10 * b00; c11 -= a10 * b01; c12 -= a10 * b02; c13 -= a10 * b03;
+					c20 -= a20 * b00; c21 -= a20 * b01; c22 -= a20 * b02; c23 -= a20 * b03;
+					c30 -= a30 * b00; c31 -= a30 * b01; c32 -= a30 * b02; c33 -= a30 * b03;
 
 				}
 				C[c0] = c00;
