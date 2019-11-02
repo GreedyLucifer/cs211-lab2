@@ -213,6 +213,17 @@ void mydgemm(const double *A, const double *B, double *C, int n, int i, int j, i
 					c20 -= a20 * b00; c21 -= a20 * b01; c22 -= a20 * b02; c23 -= a20 * b03;
 					c30 -= a30 * b00; c31 -= a30 * b01; c32 -= a30 * b02; c33 -= a30 * b03;
 
+					a00 = A[a0 + 3];
+					a10 = A[a1 + 3];
+					a20 = A[a2 + 3];
+					a30 = A[a3 + 3];
+					b00 = B[b3]; b01 = B[b3 + 1]; b02 = B[b3 + 2]; b03 = B[b3 + 3];
+
+					c00 -= a00 * b00; c01 -= a00 * b01; c02 -= a00 * b02; c03 -= a00 * b03;
+					c10 -= a10 * b00; c11 -= a10 * b01; c12 -= a10 * b02; c13 -= a10 * b03;
+					c20 -= a20 * b00; c21 -= a20 * b01; c22 -= a20 * b02; c23 -= a20 * b03;
+					c30 -= a30 * b00; c31 -= a30 * b01; c32 -= a30 * b02; c33 -= a30 * b03;
+
 				}
 				C[c0] = c00;
 				C[c0 + 1] = c01;
