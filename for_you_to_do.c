@@ -175,27 +175,27 @@ void mydgemm(const double *A, const double *B, double *C, int n, int i, int j, i
 					register double a20 = A[a2];
 					register double b00 = B[b0]; register double b01 = B[b0 + 1]; register double b02 = B[b0 + 2];
 
-					c00 += a00 * b00; c01 += a00 * b01; c02 += a00 * b02;
-					c10 += a10 * b00; c11 += a10 * b01; c12 += a10 * b02;
-					c20 += a20 * b00; c21 += a20 * b01; c22 += a20 * b02;
+					c00 -= a00 * b00; c01 -= a00 * b01; c02 -= a00 * b02;
+					c10 -= a10 * b00; c11 -= a10 * b01; c12 -= a10 * b02;
+					c20 -= a20 * b00; c21 -= a20 * b01; c22 -= a20 * b02;
 
 					a00 = A[a0 + 1];
 					a10 = A[a1 + 1];
 					a20 = A[a2 + 1];
 					b00 = B[b1]; b01 = B[b1 + 1]; b02 = B[b1 + 2];
 
-					c00 += a00 * b00; c01 += a00 * b01; c02 += a00 * b02;
-					c10 += a10 * b00; c11 += a10 * b01; c12 += a10 * b02;
-					c20 += a20 * b00; c21 += a20 * b01; c22 += a20 * b02;
+					c00 -= a00 * b00; c01 -= a00 * b01; c02 -= a00 * b02;
+					c10 -= a10 * b00; c11 -= a10 * b01; c12 -= a10 * b02;
+					c20 -= a20 * b00; c21 -= a20 * b01; c22 -= a20 * b02;
 
 					a00 = A[a0 + 2];
 					a10 = A[a1 + 2];
 					a20 = A[a2 + 2];
 					b00 = B[b2]; b01 = B[b2 + 1]; b02 = B[b2 + 2];
 
-					c00 += a00 * b00; c01 += a00 * b01; c02 += a00 * b02;
-					c10 += a10 * b00; c11 += a10 * b01; c12 += a10 * b02;
-					c20 += a20 * b00; c21 += a20 * b01; c22 += a20 * b02;
+					c00 -= a00 * b00; c01 -= a00 * b01; c02 -= a00 * b02;
+					c10 -= a10 * b00; c11 -= a10 * b01; c12 -= a10 * b02;
+					c20 -= a20 * b00; c21 -= a20 * b01; c22 -= a20 * b02;
 
 				}
 				C[c0] = c00;
